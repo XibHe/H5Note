@@ -2,7 +2,7 @@
 H5学习笔记
 
 ## vertical-align
-垂直对齐属性，所有浏览器都支持vertical-align属性。vertical-align属性设置元素的垂直对齐方式。该属性定义行内元素的基线相对于该元素所在行的基线的垂直对齐。允许指定负长度和百分比值。这会使元素降低而不是升高。在单元格中，这个属性会设置单元格框中的单元格内容的对齐方式。
+垂直对齐属性，所有浏览器都支持vertical-align属性。vertical-align属性设置元素的垂直对齐方式。该属性定义<font color="#DC143C">行内元素</font>的基线相对于该元素所在行的基线的垂直对齐。允许指定负长度和百分比值。这会使元素降低而不是升高。在单元格中，这个属性会设置<font color="#DC143C">单元格</font>框中的单元格内容的对齐方式。
 主要的值:
 
 * baseline  默认。元素放置在父元素的基线上。
@@ -16,7 +16,7 @@ H5学习笔记
 
 示例:
 
-```css
+```html
 <!DOCTYPE html>
 <html>
     <head>
@@ -82,4 +82,48 @@ H5学习笔记
 ```
 
 ## padding-top
+padding-top 属性设置元素的上内边距（空间）。行内非替换元素上设置的上内边距不会影响行高计算，因此，如果一个元素既有内边距又有背景，从视觉上看可能延伸到其他行，有可能还会与其他内容重叠。不允许指定负内边距值。
 
+<font color="#DC143C">注意</font>：不允许使用负值。
+
+可能的值: 
+
+* length	   规定以具体单位计的固定的上内边距值，比如像素、厘米等。默认值是 0px。
+* %	          定义基于父元素宽度的百分比上内边距。此值不会如预期的那样工作于所有的浏览器中。
+* inherit	   规定应该从父元素继承上内边距。
+
+示例:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>背景</title>
+    <style>
+     /*此处写代码*/
+      div{width: 500px;
+          height: 350px;
+          text-align: center;
+          background-image: url(http://climg.mukewang.com/58dc9d360001d65806500650.jpg);
+          padding-top: 300px;
+          font-weight: bold;
+          font-size: 22px;
+      }
+    </style>
+</head>
+<body>
+    <div>
+                 《长歌行》
+        <br>
+        <br>青青园中葵，朝露待日晞。
+        <br>阳春布德泽，万物生光辉。
+        <br>常恐秋节至，焜黄华叶衰。
+        <br>百川东到海，何时复西归。
+        <br>少壮不努力，老大徒伤悲。
+        <br>
+    </div>
+</body>
+</html>
+
+```
