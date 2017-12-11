@@ -127,3 +127,37 @@ padding-top 属性设置元素的上内边距（空间）。行内非替换元�
 </html>
 
 ```
+
+## JSPatch OC转JS
+
+1. OC中的NSDictionary转换，使用**setValue_forKey**
+
+eg. 
+
+```
+NSDictionary *param = @{@"clinicId":clinkId,@"pageNo":[NSString stringWithFormat:@"%ld",self.pageNum],@"pageSize":@"20"};
+```
+转换为：
+
+```
+var param = NSMutableDictionary.dictionary();
+param.setValue_forKey(clinkId, "clinicId");
+param.setValue_forKey(NSString.stringWithFormat("%ld", self.pageNum), "pageNo");
+param.setValue_forKey("20", "pageSize");
+```
+
+2. 读取字典NSDictionary对应的键值
+
+eg.
+
+```
+NSArray *arr = model.body.content[@"list"];
+```
+
+转换为：
+
+```
+var arr = model.body().content().valueForKey("list");
+```
+
+
