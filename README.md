@@ -134,12 +134,12 @@ padding-top 属性设置元素的上内边距（空间）。行内非替换元�
 
 eg. 
 
-```
+```objectivec
 NSDictionary *param = @{@"clinicId":clinkId,@"pageNo":[NSString stringWithFormat:@"%ld",self.pageNum],@"pageSize":@"20"};
 ```
 转换为：
 
-```
+```js
 var param = NSMutableDictionary.dictionary();
 param.setValue_forKey(clinkId, "clinicId");
 param.setValue_forKey(NSString.stringWithFormat("%ld", self.pageNum), "pageNo");
@@ -150,14 +150,32 @@ param.setValue_forKey("20", "pageSize");
 
 eg.
 
-```
+```objectivec
 NSArray *arr = model.body.content[@"list"];
 ```
 
 转换为：
 
-```
+```js
 var arr = model.body().content().valueForKey("list");
 ```
 
+3. 使用**setValuesForKeysWithDictionary**设置model
 
+eg.
+
+```objectivec
+ for (int i = 0; i<arr.count; i++) {
+  LZPartnerWalletDetailModel *model = [[LZPartnerWalletDetailModel alloc]init];
+  [model setValuesForKeysWithDictionary:arr[i]];
+  [self.dataArr addObject:model];
+}
+```
+
+转换为：
+
+```js
+for (var i = 0; i < arr.count(); i++){                                                                                                                                                    var model = LZPartnerWalletDetailModel.alloc().init();                                                                                  var dic = arr.objectAtIndex(i);                                                                 model.setAmount(dic.valueForKey("amount"));                                         model.setContent(dic.valueForKey("content"));                                                                 model.setCreatetime(dic.valueForKey("createtime"));                                                                    model.setStatus(dic.valueForKey("status"));                                                            model.setReason(dic.valueForKey("reason"));                                                                                   self.dataArr().addObject(model);                                                                                                                                                 }
+```
+
+其中，dic需要一个个的使用dic.valueForKey来设置。
