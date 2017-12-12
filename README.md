@@ -175,7 +175,17 @@ eg.
 转换为：
 
 ```js
-for (var i = 0; i < arr.count(); i++){                                                                                                                                                    var model = LZPartnerWalletDetailModel.alloc().init();                                                                                  var dic = arr.objectAtIndex(i);                                                                 model.setAmount(dic.valueForKey("amount"));                                         model.setContent(dic.valueForKey("content"));                                                                 model.setCreatetime(dic.valueForKey("createtime"));                                                                    model.setStatus(dic.valueForKey("status"));                                                            model.setReason(dic.valueForKey("reason"));                                                                                   self.dataArr().addObject(model);                                                                                                                                                 }
+for (var i = 0; i < arr.count(); i++){
+   var model = LZPartnerWalletDetailModel.alloc().init();
+   var dic = arr.objectAtIndex(i);
+   
+   model.setAmount(dic.valueForKey("amount"));
+   model.setContent(dic.valueForKey("content"));
+   model.setCreatetime(dic.valueForKey("createtime"));
+   model.setStatus(dic.valueForKey("status"));
+   model.setReason(dic.valueForKey("reason"));
+   self.dataArr().addObject(model);
+}
 ```
 
 其中，dic需要一个个的使用dic.valueForKey来设置。
